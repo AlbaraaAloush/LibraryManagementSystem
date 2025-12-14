@@ -43,6 +43,11 @@ namespace LibraryManagementSystem
             Title = title;
             IsAvailable = true;
         }
+
+        public virtual int GetBorrowDuration()
+        {
+            return 15;
+        }
         
         // C# provides default ToString method for all objects, so we need to override it and write our own method
         public override string ToString()

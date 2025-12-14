@@ -41,6 +41,10 @@ namespace LibraryManagementSystem
             PageCount = pageCount;
         }
 
+        public override int GetBorrowDuration()
+        {
+            return 14;
+        }
         public override string ToString()
         {
             return $"{base.ToString()} | Author: {Author}, Pages: {PageCount} ";
