@@ -9,7 +9,7 @@ using System;
 
 namespace LibraryManagementSystem
 {
-    internal abstract class LibraryItem
+    internal abstract class LibraryItem : IBorrowable
     {
         // Static member (shared across all instances)
         private static int nextId = 1;
@@ -44,7 +44,7 @@ namespace LibraryManagementSystem
             IsAvailable = true;
         }
 
-        public virtual int GetBorrowDuration()
+        public int GetBorrowDuration()
         {
             return 15;
         }
