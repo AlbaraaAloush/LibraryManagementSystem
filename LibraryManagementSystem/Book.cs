@@ -6,7 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryMangementSystem
+namespace LibraryManagementSystem
 {
     internal class Book : LibraryItem
     {
@@ -18,7 +18,7 @@ namespace LibraryMangementSystem
             get => author;
             private set
             {
-                if(String.IsNullOrWhiteSpace(Author))
+                if(String.IsNullOrWhiteSpace(value))
                     throw new ArgumentException("Author cannot be null or empty");
                 author = value;
             }   
@@ -28,9 +28,9 @@ namespace LibraryMangementSystem
         public int PageCount
         {
             get => pageCount;
-            set
+            private set
             {
-                pageCount = value >= 1 ? value : throw new ArgumentException("Page Count cannot be less than 1");
+                pageCount = value >= 1 ? value : throw new ArgumentOutOfRangeException(nameof(value), value, "Page Count cannot be less than 1");
             }
         }
 
@@ -41,9 +41,9 @@ namespace LibraryMangementSystem
             PageCount = pageCount;
         }
 
-        public string ToString()
+        public override string ToString()
         {
-            return $"{base.ToString} | Author: {Author}, Pages: {PageCount} ";
+            return $"{base.ToString()} | Author: {Author}, Pages: {PageCount} ";
         }
     }
 }
