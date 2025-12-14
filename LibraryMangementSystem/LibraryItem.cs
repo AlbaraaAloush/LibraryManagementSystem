@@ -24,6 +24,7 @@ namespace LibraryManagementSystem
         {
             // same as get {return title;}
             get => title;
+            // private set to allow setting the value only when inistantiating an object using constructor
             private set
             {
                 if (string.IsNullOrWhiteSpace(value))
@@ -42,6 +43,8 @@ namespace LibraryManagementSystem
             Title = title;
             IsAvailable = true;
         }
+        
+        // C# provides default ToString method for all objects, so we need to override it and write our own method
         public override string ToString()
         {
             return $"[{Id}] {Title} - Available: {IsAvailable}";
