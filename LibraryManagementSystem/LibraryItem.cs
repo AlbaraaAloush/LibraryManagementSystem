@@ -44,7 +44,7 @@ namespace LibraryManagementSystem
             IsAvailable = true;
         }
 
-        public int GetBorrowDuration()
+        public virtual int GetBorrowDuration()
         {
             return 15;
         }
